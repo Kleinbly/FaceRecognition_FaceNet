@@ -103,7 +103,58 @@ def load_dataset():
     # Save the arrays to an NPZ file
     np.savez('generated_images.npz', array1=X_train, array2=X_test, array3=Y_train, array4=Y_test)
 
+
+def get_embedding(embedder,img):
+
+    # Converting the image to the LUV channel, providing more distinction between the different features of the face
+    face_img = cv2.cvtColor(img, cv2.COLOR_RGB2LUV)
+
+    # Expanding the dimensions of the face_img array by adding an extra dimension at the beginning.
+    # This is done to match the input shape expected by neural networks, where the first dimension represents the batch size.
+    face_img = np.expand_dims(face_img, axis=0)
+
+    # Converting the data type of the face_img array to float32.
+    # This is a common practice in machine learning to ensure numerical precision and compatibility with certain neural network libraries.
+    face_img = face_img.astype('float32')
+
+    # Generate embeddings of the image
+    yhat = embedder.embeddings(face_img)
+
+    return yhat[0]
+
+
+def get_all_embeddings():
+    # Load the embedder
+    embedder = FaceNet()
+
+    # Load the .npz file
+    data = np.load('generated_images.npz')
+
+    X_train = data['array1']
+    X_test = data['array2']
+    Y_train = data['array3']
+    Y_test = data['array4']
+    
+    EMBEDDED_TRAIN_SET = []
+    EMBEDDED_TEST_SET = []
+
+    for img in X_train:
+        img = cv2.cvtColor(img, cv2.COLOR_RGB2LUV)
+        EMBEDDED_TRAIN_SET.append(get_embedding(embedder, img))
+
+    for img in X_test:
+        img = cv2.cvtColor(img, cv2.COLOR_RGB2LUV)
+        EMBEDDED_TEST_SET.append(get_embedding(embedder, img))
+
+    X_train_embeddings = np.asarray(EMBEDDED_TRAIN_SET)
+    X_test_embeddings = np.asarray(EMBEDDED_TEST_SET)
+
+    # Save the arrays to npz file
+    np.savez('embeddings.npz', array1=X_train_embeddings, array2=X_test_embeddings, array3=Y_train, array4=Y_test)
+
+
 if __name__ == "__main__":
     load_dataset()
+    get_all_embeddings()
 
 
