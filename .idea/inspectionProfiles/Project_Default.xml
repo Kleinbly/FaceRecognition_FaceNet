@@ -1,0 +1,50 @@
+<component name="InspectionProjectProfileManager">
+  <profile version="1.0">
+    <option name="myName" value="Project Default" />
+    <inspection_tool class="PyPackageRequirementsInspection" enabled="true" level="WARNING" enabled_by_default="true">
+      <option name="ignoredPackages">
+        <value>
+          <list size="23">
+            <item index="0" class="java.lang.String" itemvalue="audioop" />
+            <item index="1" class="java.lang.String" itemvalue="snowboydetect" />
+            <item index="2" class="java.lang.String" itemvalue="hashlib" />
+            <item index="3" class="java.lang.String" itemvalue="os" />
+            <item index="4" class="java.lang.String" itemvalue="io" />
+            <item index="5" class="java.lang.String" itemvalue="aifc" />
+            <item index="6" class="java.lang.String" itemvalue="base64" />
+            <item index="7" class="java.lang.String" itemvalue="tempfile" />
+            <item index="8" class="java.lang.String" itemvalue="subprocess" />
+            <item index="9" class="java.lang.String" itemvalue="sys" />
+            <item index="10" class="java.lang.String" itemvalue="uuid" />
+            <item index="11" class="java.lang.String" itemvalue="wave" />
+            <item index="12" class="java.lang.String" itemvalue="collections" />
+            <item index="13" class="java.lang.String" itemvalue="hmac" />
+            <item index="14" class="java.lang.String" itemvalue="distutils" />
+            <item index="15" class="java.lang.String" itemvalue="json" />
+            <item index="16" class="java.lang.String" itemvalue="threading" />
+            <item index="17" class="java.lang.String" itemvalue="math" />
+            <item index="18" class="java.lang.String" itemvalue="time" />
+            <item index="19" class="java.lang.String" itemvalue="pocketsphinx" />
+            <item index="20" class="java.lang.String" itemvalue="python-utils" />
+            <item index="21" class="java.lang.String" itemvalue="pickle" />
+            <item index="22" class="java.lang.String" itemvalue="streamlit" />
+          </list>
+        </value>
+      </option>
+    </inspection_tool>
+    <inspection_tool class="PyPep8Inspection" enabled="true" level="WEAK WARNING" enabled_by_default="true">
+      <option name="ignoredErrors">
+        <list>
+          <option value="E203" />
+        </list>
+      </option>
+    </inspection_tool>
+    <inspection_tool class="PyUnresolvedReferencesInspection" enabled="true" level="WARNING" enabled_by_default="true">
+      <option name="ignoredIdentifiers">
+        <list>
+          <option value="keras.*" />
+        </list>
+      </option>
+    </inspection_tool>
+  </profile>
+</component>
